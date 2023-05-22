@@ -8,10 +8,11 @@ function App() {
   const [question, setQuestion] = useState('Hello, ChatGPT');
   const [submitting, setSubmitting] = useState(false);
   const [answer, setAnswer] = useState('No Answer Yet');
+  const [language, setLanguage] = useState('English');
   const handleSubmit = event => {
     event.preventDefault();
     setSubmitting(true);
-    let result = sendCall(question);
+    let result = sendCall(question, language);
     result.then(e => setAnswer(e));
     // Replace this with the AI Call
     setTimeout(() => {
@@ -34,6 +35,13 @@ function App() {
               <input name="question" value={question} onChange={e => {setQuestion(e.target.value)}}/>
             </label>
           </fieldset>
+            <label>Choose a language:</label>
+            <select id="language" value={language} onChange={e =>{setLanguage(e.target.value)}}>
+                <option value="English">English</option>
+                <option value="French">French</option>
+                <option value="Spanish">Spanish</option>
+                <option value="German">German</option>
+            </select>
           <button type="submit">Submit</button>
         </form>
       </div>

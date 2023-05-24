@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // Define some OpenAI API whatnots
-const apiURL = 'https://api.openai.com/v1/chat/completions';
-const apiKey = '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';
+const apiURL = 'https://api.openai.com/v1/edits';
+const apiKey = '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';
 // This will be changed
 //var prompt = 'Hello, ChatGPT';
 const maxTokens = 2200;
@@ -12,10 +12,10 @@ const maxTokens = 2200;
 export async function sendCall(prompt1, language) {
     let payload = "Uh oh";
     return axios.post(apiURL, {
-        'model': 'text-davinci-edit-001',
-        'input': prompt1.toString(),
-        'instruction': 'Translate this text to ' + language.toString(),
-        max_tokens: maxTokens
+        "model": "text-davinci-edit-001",
+        "input": prompt1.toString(),
+        "instruction": "Translate to " + language.toString(),
+        //max_tokens: maxTokens
     }, {
         headers: {
             'Authorization': `Bearer ${apiKey}`,
@@ -26,7 +26,8 @@ export async function sendCall(prompt1, language) {
         //console.log(response.data.choice[0].text);
         console.log("Here is the entirety of the response.data:\n" + JSON.stringify(response.data.choices[0].text));
         payload = JSON.stringify(response.data.choices[0].text);
-        return payload;
+        //payload = payload.substring(1, payload.length-3);
+        return payload
     }).catch(error => {
         console.log('Error: ', error);
     });

@@ -26,8 +26,6 @@ function App() {
         {submitting &&
             <div>Submitting Form...</div>
         }
-        <p id={"answer"}>{answer}
-        </p>
         <form onSubmit={handleSubmit}>
           <fieldset>
             <label>
@@ -44,6 +42,8 @@ function App() {
             </select>
           <button type="submit">Submit</button>
         </form>
+          <p id={"answer"}>{answer}
+          </p>
       </div>
   );
 }

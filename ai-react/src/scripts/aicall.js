@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // Define some OpenAI API whatnots
-const apiURL = process.env.API_URL;
-const apiKey = process.env.API_KEY;
+const apiURL = 'https://api.openai.com/v1/edits';
+const apiKey = ''; //API KEY GOES HERE
 // This will be changed
 //var prompt = 'Hello, ChatGPT';
 const maxTokens = 2200;
@@ -16,6 +16,7 @@ export async function sendCall(prompt1, language) {
         "input": prompt1.toString(),
         "instruction": "Translate to " + language.toString(),
         //max_tokens: maxTokens
+        //"temparature": "0.2",
     }, {
         headers: {
             'Authorization': `Bearer ${apiKey}`,
@@ -26,7 +27,7 @@ export async function sendCall(prompt1, language) {
         //console.log(response.data.choice[0].text);
         console.log("Here is the entirety of the response.data:\n" + JSON.stringify(response.data.choices[0].text));
         payload = JSON.stringify(response.data.choices[0].text);
-        //payload = payload.substring(1, payload.length-3);
+        payload = payload.substring(1, payload.length-3);
         return payload
     }).catch(error => {
         console.log('Error: ', error);

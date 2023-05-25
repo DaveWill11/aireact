@@ -29,11 +29,12 @@ function App() {
         <form onSubmit={handleSubmit}>
           <fieldset>
             <label>
-              <p>Question</p>
+              <p>Text to translate: </p>
               <input name="question" value={question} onChange={e => {setQuestion(e.target.value)}}/>
             </label>
           </fieldset>
-            <label>Choose a language:</label>
+            <br/>
+            <label>Choose a language to translate to: </label>
             <select id="language" value={language} onChange={e =>{setLanguage(e.target.value)}}>
                 <option value="English">English</option>
                 <option value="French">French</option>
@@ -42,8 +43,12 @@ function App() {
             </select>
           <button type="submit">Submit</button>
         </form>
+          <br/>
+          <fieldset>
+              <p>Translated text: </p>
           <p id={"answer"}>{answer}
           </p>
+          </fieldset>
       </div>
   );
 }

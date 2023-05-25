@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // Define some OpenAI API whatnots
-const apiURL = 'https://api.openai.com/v1/edits';
-const apiKey = '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';
+const apiURL = process.env.API_URL;
+const apiKey = process.env.API_KEY;
 // This will be changed
 //var prompt = 'Hello, ChatGPT';
 const maxTokens = 2200;

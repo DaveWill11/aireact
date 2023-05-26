@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from "react";
 import { sendCall } from "./scripts/aicall.js";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
 
   return (
       <div className="wrapper">
-        <h1>How About Them AI</h1>
+        <h1>The Maniacal Translator</h1>
         {submitting &&
             <div>Submitting Form...</div>
         }
@@ -35,7 +36,7 @@ function App() {
           </fieldset>
             <br/>
             <label>Choose a language to translate to: </label>
-            <select id="language" value={language} onChange={e =>{setLanguage(e.target.value)}}>
+            <select class="form-select" id="language" value={language} onChange={e =>{setLanguage(e.target.value)}}>
                 <option value="English">English</option>
                 <option value="French">French</option>
                 <option value="Spanish">Spanish</option>

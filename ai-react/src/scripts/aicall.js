@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Define some OpenAI API whatnots
 const apiURL = 'https://api.openai.com/v1/edits';
-const apiKey = ''; //API KEY GOES HERE
+const apiKey = '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'; //API KEY GOES HERE
 // This will be changed
 //var prompt = 'Hello, ChatGPT';
 const maxTokens = 2200;
